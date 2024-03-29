@@ -4,12 +4,13 @@
 
 
 typedef struct {
-    char titre;
+    char *titre;
     int taille_phy;
     int taille_log;
-    int donnee;
+    int *donnee;
 }COLUMN;
 
+COLUMN *create_column(char* title);
 
 typedef struct {
     COLUMN colonnes;
