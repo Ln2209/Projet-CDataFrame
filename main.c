@@ -2,5 +2,7 @@
 #include <stdio.h>
 
 int main() {
-    COLUMN *col = create_column("Colonne entier");
+    COLUMN *colonne = create_column("Entier");
+    delete_column(&colonne);
+    return 0;
 }
