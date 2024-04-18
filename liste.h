@@ -14,6 +14,8 @@ COLUMN *create_column(char* title);
 
 int delete_column(COLUMN **col);
 
+void print_col(COLUMN* col);
+
 void convert_value(COLUMN *col, unsigned long long int i, char *str, int size);
 
 typedef struct {
