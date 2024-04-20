@@ -1,4 +1,5 @@
 #include "liste.h"
+#include <stdio.h>
 
 int main() {
     COLUMN *mycol = create_column("My column");
@@ -10,6 +11,5 @@ int main() {
     } else {
         printf("Error adding value to my column\n");
     }
-
-    return 0;
-}
+    
+    delete_column(&colonne);

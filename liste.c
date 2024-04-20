@@ -41,3 +41,13 @@ int insert_value(COLUMN* col, int value) { /*Fonction pour insérer une valeur d
         return 1;
     }
 }
+
+int delete_column(COLUMN **col) {
+    free((*col)->titre);
+    free((*col)->donnee);
+    return 0;
+}
+
+void print_col(COLUMN* col){
+
+}
