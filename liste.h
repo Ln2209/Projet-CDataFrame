@@ -2,7 +2,6 @@
 #define PROJET_C_LISTE_H
 #define REALOC_SIZE 256
 
-
 typedef struct {
     char *titre;
     int taille_phy;
@@ -11,16 +10,13 @@ typedef struct {
 }COLUMN;
 
 COLUMN *create_column(char* title);
-
+int insert_value(COLUMN* col, int value);
 int delete_column(COLUMN **col);
-
 void print_col(COLUMN* col);
-
 void convert_value(COLUMN *col, unsigned long long int i, char *str, int size);
 
 typedef struct {
     COLUMN colonnes;
 } CDataframe;
-
 
 #endif //PROJET_C_LISTE_H
