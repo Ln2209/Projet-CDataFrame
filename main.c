@@ -4,12 +4,14 @@
 int main() {
     COLUMN *mycol = create_column("My column");
 
-    int val = 5, InsertVal;
-    InsertVal = insert_value(mycol, val);
-    if (InsertVal == 1) {
-        printf("Value added successfully to my column\n");
-    } else {
-        printf("Error adding value to my column\n");
-    }
-    
-    delete_column(&colonne);
+    insert_value(mycol,32);
+    insert_value(mycol,1);
+    insert_value(mycol,2);
+ //   if (InsertVal == 1) {
+   //     printf("Value added successfully to my column\n");
+   // } else {
+     //   printf("Error adding value to my column\n");
+    //}
+    print_col(mycol);
+
+}
