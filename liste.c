@@ -59,6 +59,41 @@ void print_col(COLUMN* col){
     }
 }
 
+int nb_occ_x(COLUMN* col, int x) {
+    int i, occurence = 0;
+    for (i = 0; i < col->taille_log; i++) {
+        if (x == col->donnee[i]) {
+            occurence += 1;
+        }
+    }
+    return occurence;
+}
+
+int pos_x(COLUMN* col, int x) {
+    int valeur_position_x;
+    valeur_position_x = col->donnee[x];
+    return valeur_position_x;
+}
+
+int nb_sup_x(COLUMN*col, int x) {
+    int nombre_supérieur_x = 0, i;
+    for (i = 0; i < col->taille_log; i++) {
+        if (x < col->donnee[i]) {
+            nombre_supérieur_x += 1;
+        }
+    }
+    return nombre_supérieur_x;
+}
+
+int nb_inf_x(COLUMN*col, int x) {
+    int nombre_inférieur_x = 0, i;
+    for (i = 0; i < col->taille_log; i++) {
+        if (x > col->donnee[i]) {
+            nombre_inférieur_x += 1;
+        }
+    }
+    return nombre_inférieur_x;
+}
 
 //Partie 2
 
@@ -108,5 +143,3 @@ int insert_value_c(COLUMN_CHAR *col, void *value_2){
         return 1;
     }
 }
-
-

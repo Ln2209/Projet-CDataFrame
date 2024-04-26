@@ -13,7 +13,11 @@ COLUMN *create_column(char* title);
 int insert_value(COLUMN* col, int value);
 int delete_column(COLUMN **col);
 void print_col(COLUMN* col);
-
+int nb_occ_x(COLUMN*col, int x);
+int pos_x(COLUMN*col, int x);
+int nb_sup_x(COLUMN*col, int x);
+int nb_inf_x(COLUMN*col, int x);
+int nb_egal_x(COLUMN*col, int x);
 
 enum enum_type
 {
@@ -46,7 +50,6 @@ typedef struct column COLUMN_CHAR;
 COLUMN_CHAR *create_column_char(ENUM_TYPE type, char *title_c);
 
 int insert_value_c(COLUMN_CHAR *col, void *value_c);
-
 void convert_value(COLUMN *col, unsigned long long int i, char *str, int size);
 
 typedef struct {
