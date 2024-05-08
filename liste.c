@@ -1,6 +1,7 @@
 #include "liste.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 COLUMN *create_column(char *title) {
     COLUMN *colonne = (int *)malloc(sizeof(int));
@@ -135,8 +136,45 @@ int insert_value_c(COLUMN_CHAR *col, void *value_2){
         col->max_size = NewTaillePhysique_c;
         return 1;
     }
+    //after checking memory
+    switch(col->column_type){
+        ...
+        case INT:
+            col->data[col->size] = (int*) malloc (sizeof(int));
+            *((int*)col->data[col->size])= *((int*)value_2);
+            break;
+        case CHAR:
+            col->data[col->size] = (char*) malloc (sizeof(char));
+            *((char*)col->data[col->size])= *((char*)value_2);
+            break;
+        case FLOAT:
+            col->data[col->size] = (float*) malloc (sizeof(float));
+            *((float*)col->data[col->size])= *((float*)value_2);
+            break;
+        case UINT:
+            col->data[col->size] = (unsigned int*) malloc(sizeof(unsigned int));
+            *((unsigned int*)col->data[col->size])= *((unsigned int*)value_2);
+            break;
+        case DOUBLE:
+            col->data[col->size]= (double*) malloc(sizeof(double));
+            *((double*)col->data[col->size])= *((double*)value_2);
+            break;
+        case STRING:
+            col->data[col->size]= malloc(strlen((char*)value_2));
+            strcpy((char*)col->data[col->size],(char*)value_2);
+            break;
+        case STRUCTURE:
+            col->data[col->size]= malloc(sizeof(struct column));
+            memcpy(col->data[col->size],value_2, sizeof(struct column));
+            break;
+    }
+    ...
+    col->size++;
+    ...
+}
 
-        /*S'il y a assez de place dans le tableau pour insérer la valeur à l'indice taille_log*/
+
+/*S'il y a assez de place dans le tableau pour insérer la valeur à l'indice taille_log*/
     else { /* col->taille_log < col->taille_phy */
         col->data[col->size] = value_2;
         col->size++;

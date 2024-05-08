@@ -19,6 +19,8 @@ int nb_sup_x(COLUMN*col, int x);
 int nb_inf_x(COLUMN*col, int x);
 int nb_egal_x(COLUMN*col, int x);
 
+
+
 enum enum_type
 {
     NULLVAL = 1 , UINT, INT, CHAR, FLOAT, DOUBLE, STRING, STRUCTURE
