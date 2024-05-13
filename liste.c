@@ -1,9 +1,10 @@
 #include "liste.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 COLUMN *create_column(char *title) {
-    COLUMN *colonne = (COLUMN *)malloc(sizeof(COLUMN));
+    COLUMN *colonne = (int *)malloc(sizeof(int));
     if (colonne == NULL){
         return NULL;
     }
@@ -17,7 +18,7 @@ COLUMN *create_column(char *title) {
 int insert_value(COLUMN* col, int value) { /*Fonction pour insérer une valeur dans la colonne*/
     int NewTaillePhysique = col->taille_phy;
     if (col->taille_phy == NULL || col->taille_phy == 0) { /*Si la taille physique est null ou = 0, on créer un tableau*/
-        col->donnee = (COLUMN *)malloc(REALOC_SIZE*sizeof(COLUMN));
+        col->donnee = (COLUMN_CHAR *)malloc(REALOC_SIZE*sizeof(COLUMN_CHAR ));
         if (col->donnee == NULL) {
             return 0;   /*On retourne 0 si on a pas pu créer de tableau car il n'y avait pas assez de stockage*/
         }
@@ -93,4 +94,90 @@ int nb_inf_x(COLUMN*col, int x) {
         }
     }
     return nombre_inférieur_x;
+}
+
+//Partie 2
+
+COLUMN_CHAR *create_column_char(ENUM_TYPE type, char *title_c){
+    COLUMN_CHAR *colonne_c = (COLUMN_CHAR *)malloc(sizeof(COLUMN_CHAR));
+    if (colonne_c == NULL){
+        return NULL;
+    }
+    colonne_c->title_c = title_c;
+    colonne_c->column_type = type;
+    colonne_c->data = NULL;
+    colonne_c->max_size = 0;
+    colonne_c->size = 0;
+    colonne_c->index = NULL;
+    return colonne_c;
+}
+
+int insert_value_c(COLUMN_CHAR *col, void *value_2){
+    int NewTaillePhysique_c = col->max_size;
+    if (col->max_size == NULL || col->max_size == 0) { /*Si la max_size est null ou = 0, on créer un tableau*/
+        col->data = (COLUMN_CHAR *)malloc(REALOC_SIZE*sizeof(COLUMN_CHAR));
+        if (col->data == NULL) {
+            return 0;   /*On retourne 0 si on a pas pu créer de tableau car il n'y avait pas assez de stockage*/
+        }
+        col->data[0] = value_2; /*Insérer la valeur*/
+        col->size++; /*Ajouter 1 à size*/
+        col->max_size = REALOC_SIZE;
+        return 1;
+    }
+    if (col->size == col->max_size) { /*S'il n'y a plus de place dans le tableau*/
+        NewTaillePhysique_c += REALOC_SIZE; /*On ajoute REALOC_SIZE (=256 cases)*/
+        int *new_p_2 = (char *)realloc(col->data, NewTaillePhysique_c* sizeof(char));
+        if (new_p_2 == NULL) {
+            return 0;
+        }
+        col->data = new_p_2;
+        col->data[col->size] = value_2; /*Ajouter valeur à l'indice size*/
+        col->size++;
+        col->max_size = NewTaillePhysique_c;
+        return 1;
+    }
+    //after checking memory
+    switch(col->column_type){
+        ...
+        case INT:
+            col->data[col->size] = (int*) malloc (sizeof(int));
+            *((int*)col->data[col->size])= *((int*)value_2);
+            break;
+        case CHAR:
+            col->data[col->size] = (char*) malloc (sizeof(char));
+            *((char*)col->data[col->size])= *((char*)value_2);
+            break;
+        case FLOAT:
+            col->data[col->size] = (float*) malloc (sizeof(float));
+            *((float*)col->data[col->size])= *((float*)value_2);
+            break;
+        case UINT:
+            col->data[col->size] = (unsigned int*) malloc(sizeof(unsigned int));
+            *((unsigned int*)col->data[col->size])= *((unsigned int*)value_2);
+            break;
+        case DOUBLE:
+            col->data[col->size]= (double*) malloc(sizeof(double));
+            *((double*)col->data[col->size])= *((double*)value_2);
+            break;
+        case STRING:
+            col->data[col->size]= malloc(strlen((char*)value_2));
+            strcpy((char*)col->data[col->size],(char*)value_2);
+            break;
+        case STRUCTURE:
+            col->data[col->size]= malloc(sizeof(struct column));
+            memcpy(col->data[col->size],value_2, sizeof(struct column));
+            break;
+    }
+    ...
+    col->size++;
+    ...
+}
+
+
+/*S'il y a assez de place dans le tableau pour insérer la valeur à l'indice taille_log*/
+    else { /* col->taille_log < col->taille_phy */
+        col->data[col->size] = value_2;
+        col->size++;
+        return 1;
+    }
 }

@@ -2,6 +2,7 @@
 #include <stdio.h>
 
 int main() {
+  /*
     // Présentation des fonctionalités
     int restart, functionality;
     printf("Voici les fonctionnalites dont nous disposons pour le moment: ");
@@ -79,12 +80,15 @@ int main() {
             nombre_inférieur_x = nb_inf_x(titrecolonne, x);
             printf("\nIl y a %d valeur(s) inferieur(s) a %d", nombre_inférieur_x, x);
         }
-
-
-
         printf("\nSouhaitez-vous utiliser une autre fonctionnalite ?");
         printf("\n0 - Non");
         printf("\n1 - Oui");
         scanf("%d", &restart);
-    }
+    } */
+  
+      COLUMN_CHAR *mycol_c = create_column_char(CHAR,"My column char");
+    char a = 'A',b = 'B';
+    insert_value_c(mycol_c,&a);
+    insert_value_c(mycol_c,NULL);
+    insert_value_c(mycol_c,&b);
 }
