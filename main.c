@@ -1,13 +1,14 @@
-#include "liste.h"
+#include "column.h"
+#include "cdataframe.h"
 #include <stdio.h>
 
 int main() {
-  /*
+    /*
     // Présentation des fonctionalités
     int restart, functionality;
     printf("Voici les fonctionnalites dont nous disposons pour le moment: ");
-    printf("\n 1 - Creer ue colonne");
-    printf("\n 2 - Insérer un nombre de valeur saisie et verifier si chaque valeur a bien ete ajoute");
+    printf("\n 1 - Creer un CDataFrame Vide Creer une colonne");
+    printf("\n 2 - Remplissage du CDataFrame à partir des saisies utilisateurs Inserer un nombre de valeur saisie et verifier si chaque valeur a bien ete ajoute");
     printf("\n 3 - Afficher la colonne");
     printf("\n 4 - Supprimer la colonne");
     printf("\n 5 - Afficher le nombre d'occurrence d'une valeur choisi par l'utilisateur");
@@ -16,6 +17,7 @@ int main() {
     printf("\n 8 - Afficher le nombre de valeur inferieur a une valeur choisi par l'utilisateur");
 
     // Choix des fonctionalités
+    int NbCases;
     char titrecolonne[100];
     int i, nombre_valeur_insere, val, insertion_valeur;
     int nombre_occurrence, x;
@@ -28,12 +30,17 @@ int main() {
         printf("\nA quelle fonctionnalite voulez-vous acceder ?");
         scanf(" %d", &functionality);
         if (functionality == 1) {
+            printf("Combien de colonne voulez-vous creer dans le CDataFrame ?");
+            scanf("%d", &NbCases);
+            CreationCDataFrameVide(NbCases);
+            printf("Le CDataFrame a ete cree avec succes !");
+        }
+        if (functionality == 2) {
+            for (i = 0; i)
             printf("Comment voulez-vous appeler la colonne ?");
             scanf(" %s", &titrecolonne);
             COLUMN *mycol = create_column(titrecolonne);
             printf("La premiere colonne %s a bien ete creer", titrecolonne);
-        }
-        if (functionality == 2) {
             printf("Combien de valeur voulez-vous inserer ?");
             scanf("%d", &nombre_valeur_insere);
             for (i = 0; i < nombre_valeur_insere; i++) {
@@ -84,11 +91,11 @@ int main() {
         printf("\n0 - Non");
         printf("\n1 - Oui");
         scanf("%d", &restart);
-    } */
+    }
   
-      COLUMN_CHAR *mycol_c = create_column_char(CHAR,"My column char");
+     /* COLUMN_CHAR *mycol_c = create_column_char(CHAR,"My column char");
     char a = 'A',b = 'B';
     insert_value_c(mycol_c,&a);
     insert_value_c(mycol_c,NULL);
-    insert_value_c(mycol_c,&b);
+    insert_value_c(mycol_c,&b);*/
 }

@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/cheni/Desktop/ProjetC/Projet-CDataFrame
+# Install script for directory: C:/Users/cheni/Desktop/Projet-CDataFrame
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/cheni/Desktop/ProjetC/Projet-CDataFrame/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/cheni/Desktop/Projet-CDataFrame/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

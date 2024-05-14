@@ -6,6 +6,8 @@ set(CMAKE_C_STANDARD 11)
 include_directories(.)
 
 add_executable(Projet_CDataFrame
-        liste.c
-        liste.h
-        main.c)
+        column.c
+        column.h
+        main.c
+        cdataframe.c
+        cdataframe.h)

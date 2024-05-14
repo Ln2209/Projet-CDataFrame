@@ -1,4 +1,5 @@
-#include "liste.h"
+#include "column.h"
+#include "cdataframe.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -97,7 +98,7 @@ int nb_inf_x(COLUMN*col, int x) {
 }
 
 //Partie 2
-
+/*
 COLUMN_CHAR *create_column_char(ENUM_TYPE type, char *title_c){
     COLUMN_CHAR *colonne_c = (COLUMN_CHAR *)malloc(sizeof(COLUMN_CHAR));
     if (colonne_c == NULL){
@@ -114,24 +115,24 @@ COLUMN_CHAR *create_column_char(ENUM_TYPE type, char *title_c){
 
 int insert_value_c(COLUMN_CHAR *col, void *value_2){
     int NewTaillePhysique_c = col->max_size;
-    if (col->max_size == NULL || col->max_size == 0) { /*Si la max_size est null ou = 0, on créer un tableau*/
+    if (col->max_size == NULL || col->max_size == 0) { //Si la max_size est null ou = 0, on créer un tableau
         col->data = (COLUMN_CHAR *)malloc(REALOC_SIZE*sizeof(COLUMN_CHAR));
         if (col->data == NULL) {
-            return 0;   /*On retourne 0 si on a pas pu créer de tableau car il n'y avait pas assez de stockage*/
+            return 0;   //On retourne 0 si on a pas pu créer de tableau car il n'y avait pas assez de stockage
         }
-        col->data[0] = value_2; /*Insérer la valeur*/
-        col->size++; /*Ajouter 1 à size*/
+        col->data[0] = value_2; //Insérer la valeur
+        col->size++; //Ajouter 1 à size
         col->max_size = REALOC_SIZE;
         return 1;
     }
-    if (col->size == col->max_size) { /*S'il n'y a plus de place dans le tableau*/
-        NewTaillePhysique_c += REALOC_SIZE; /*On ajoute REALOC_SIZE (=256 cases)*/
+    if (col->size == col->max_size) { //S'il n'y a plus de place dans le tableau
+        NewTaillePhysique_c += REALOC_SIZE; //On ajoute REALOC_SIZE (=256 cases)
         int *new_p_2 = (char *)realloc(col->data, NewTaillePhysique_c* sizeof(char));
         if (new_p_2 == NULL) {
             return 0;
         }
         col->data = new_p_2;
-        col->data[col->size] = value_2; /*Ajouter valeur à l'indice size*/
+        col->data[col->size] = value_2; //Ajouter valeur à l'indice size
         col->size++;
         col->max_size = NewTaillePhysique_c;
         return 1;
@@ -174,10 +175,11 @@ int insert_value_c(COLUMN_CHAR *col, void *value_2){
 }
 
 
-/*S'il y a assez de place dans le tableau pour insérer la valeur à l'indice taille_log*/
-    else { /* col->taille_log < col->taille_phy */
+//S'il y a assez de place dans le tableau pour insérer la valeur à l'indice taille_log
+    else { // col->taille_log < col->taille_phy
         col->data[col->size] = value_2;
         col->size++;
         return 1;
     }
 }
+*/
