@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 int main() {
-
+/*
     // Présentation des fonctionnalités
     int restart, functionality;
     printf("Voici les fonctionnalites dont nous disposons pour le moment: ");
@@ -32,9 +32,7 @@ int main() {
         printf("\nA quelle fonctionnalite voulez-vous acceder ? ");
         scanf(" %d", &functionality);
         if (functionality == 1) {
-            printf("Combien de colonne voulez-vous creer dans le CDataFrame ? ");
-            scanf("%d", &NbCases);
-            CreationCDataFrameVide(NbCases);
+            CreationCDataFrameVide(2,5);
             printf("Le CDataFrame a ete cree avec succes !");
         }
         if (functionality == 2) {
@@ -99,10 +97,30 @@ int main() {
         printf("\n1 - Oui\n");
         scanf("%d", &restart);
     }
+*/
+    int nbr_col = 3;
+    CDataframe *df = CreationCDataFrameVide(nbr_col, 0);
+    if (df == NULL) {
+        printf("Erreur lors de la création du dataframe.\n");
+        return 1;
+    }
+
+    // Ajouter une ligne de valeurs
+    int valeurs[] = {4, 7, 3};
+    ajout_ligne(df, valeurs);
+    printf("CDataframe créé avec %d colonnes et %d lignes:\n",df->nbr_colonnes, df->nbr_lignes);
+    for (int i = 0; i < df->nbr_colonnes; i++) {
+        printf("Colonne %d: ", i);
+        for (int j = 0; j < df->colonnes[i].taille_log; j++) {
+            printf("%d ", df->colonnes[i].donnee[j]);
+        }
+        printf("\n");
+    }
 
     /*COLUMN_CHAR *mycol_c = create_column_char(CHAR,"My column char");
     char a = 'A',b = 'B';
     insert_value_c(mycol_c,&a);
     insert_value_c(mycol_c,NULL);
     insert_value_c(mycol_c,&b);*/
+    return 0;
 }
