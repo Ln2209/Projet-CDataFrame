@@ -3,10 +3,14 @@
 #ifndef PROJET_CDATAFRAME_CDATAFRAME_H
 #define PROJET_CDATAFRAME_CDATAFRAME_H
 
-int CreationCDataFrameVide(int NombreCases);
 
 typedef struct {
-    COLUMN colonnes;
+    COLUMN *colonnes;
+    int nbr_colonnes;
+    int nbr_lignes;
 } CDataframe;
+
+CDataframe *CreationCDataFrameVide(int, int);
+int ajout_ligne(CDataframe*, int*);
 
 #endif //PROJET_CDATAFRAME_CDATAFRAME_H
