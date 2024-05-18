@@ -5,6 +5,6 @@
 #include <string.h>
 
 int CreationCDataFrameVide(int NombreCases) {
-    int* CDataFrame = (int*) malloc(NombreCases * sizeof(int));
-    return CDataFrame;
+    CDataframe * cdataframe = (int*) malloc(NombreCases * sizeof(int));
+    return cdataframe;
 }

@@ -3,8 +3,8 @@
 #include <stdio.h>
 
 int main() {
-    /*
-    // Présentation des fonctionalités
+
+    // Présentation des fonctionnalités
     int restart, functionality;
     printf("Voici les fonctionnalites dont nous disposons pour le moment: ");
     printf("\n 1 - Creer un CDataFrame Vide Creer une colonne");
@@ -13,8 +13,9 @@ int main() {
     printf("\n 4 - Supprimer la colonne");
     printf("\n 5 - Afficher le nombre d'occurrence d'une valeur choisi par l'utilisateur");
     printf("\n 6 - Afficher la valeur a l'emplacement d'une valeur choisi par l'utilisateur");
-    printf("\n 7 - Afficher le nombre de valeur superieur a une valeur choisi par l'utilisateur");
-    printf("\n 8 - Afficher le nombre de valeur inferieur a une valeur choisi par l'utilisateur");
+    printf("\n 7 - Afficher le nombre de valeur superieure(s) a une valeur choisi par l'utilisateur");
+    printf("\n 8 - Afficher le nombre de valeur(s) inferieure(s) a une valeur choisi par l'utilisateur");
+    printf("\n 9 - Afficher le nombre de valeur(s) egal a une valeur choisi par l'utilisateur");
 
     // Choix des fonctionalités
     int NbCases;
@@ -22,29 +23,29 @@ int main() {
     int i, nombre_valeur_insere, val, insertion_valeur;
     int nombre_occurrence, x;
     int val_position_x;
-    int nombre_supérieur_x;
-    int nombre_inférieur_x;
+    int nombre_superieur_x;
+    int nombre_inferieur_x;
+    int nombre_egal_x;
     printf("\nPour acceder aux fonctionnalites, veuillez ecrire les numeros auxquels elles correspondent");
     restart = 1;
     while (restart == 1) {
-        printf("\nA quelle fonctionnalite voulez-vous acceder ?");
+        printf("\nA quelle fonctionnalite voulez-vous acceder ? ");
         scanf(" %d", &functionality);
         if (functionality == 1) {
-            printf("Combien de colonne voulez-vous creer dans le CDataFrame ?");
+            printf("Combien de colonne voulez-vous creer dans le CDataFrame ? ");
             scanf("%d", &NbCases);
             CreationCDataFrameVide(NbCases);
             printf("Le CDataFrame a ete cree avec succes !");
         }
         if (functionality == 2) {
-            for (i = 0; i)
             printf("Comment voulez-vous appeler la colonne ?");
             scanf(" %s", &titrecolonne);
-            COLUMN *mycol = create_column(titrecolonne);
-            printf("La premiere colonne %s a bien ete creer", titrecolonne);
-            printf("Combien de valeur voulez-vous inserer ?");
+            create_column(titrecolonne);
+            printf("La premiere colonne %s a bien ete creer\n", titrecolonne);
+            printf("Combien de valeur voulez-vous inserer ? ");
             scanf("%d", &nombre_valeur_insere);
             for (i = 0; i < nombre_valeur_insere; i++) {
-                printf("Entrez la valeur:");
+                printf("\nEntrez la valeur:");
                 scanf("%d", &val);
                 insertion_valeur = insert_value(titrecolonne, val);
                 if (insertion_valeur == 1) {
@@ -70,30 +71,36 @@ int main() {
             printf("Il y a %d nombre(s) d'occurrence(s) de %d", nombre_occurrence, x);
         }
         if (functionality == 6) {
-            printf("Pour quelle emplacement voulez- vous connaitre la valeur ?");
+            printf("Pour quelle emplacement voulez-vous connaitre la valeur ?");
             scanf("%d", &x);
             val_position_x = pos_x(titrecolonne, x);
             printf("\nLa valeur a la position de %d est %d", x, val_position_x);
         }
         if (functionality == 7) {
-            printf("Pour quelle valeur voulez-vous connaitre le nombre de valeur(s) superieur(s) ?");
+            printf("Pour quelle valeur voulez-vous connaitre le nombre de valeur(s) superieur(s)?");
             scanf("%d", &x);
-            nombre_supérieur_x = nb_sup_x(titrecolonne, x);
-            printf("\nIl y a %d valeur(s) superieur(s) a %d", nombre_supérieur_x, x);
+            nombre_superieur_x = nb_sup_x(titrecolonne, x);
+            printf("\nIl y a %d valeur(s) superieur(s) a %d", nombre_superieur_x, x);
         }
         if (functionality == 8) {
-            printf("Pour quelle valeur voulez-vous connaitre le nombre de valeur(s) inferieur(s) ?");
+            printf("Pour quelle valeur voulez-vous connaitre le nombre de valeur(s) inferieur(s)?");
             scanf("%d", &x);
-            nombre_inférieur_x = nb_inf_x(titrecolonne, x);
-            printf("\nIl y a %d valeur(s) inferieur(s) a %d", nombre_inférieur_x, x);
+            nombre_inferieur_x = nb_inf_x(titrecolonne, x);
+            printf("\nIl y a %d valeur(s) qui est inferieur(s) a %d", nombre_inferieur_x, x);
+        }
+        if (functionality == 9){
+            printf("Pour quelle valeur voulez-vous connaitre le nombre de valeur(s) egal?");
+            scanf("%d",&x);
+            nombre_egal_x = nb_egal_x(titrecolonne, x);
+            printf("Il y a %d valeur(s) qui est egal a %d", nombre_egal_x, x);
         }
         printf("\nSouhaitez-vous utiliser une autre fonctionnalite ?");
         printf("\n0 - Non");
-        printf("\n1 - Oui");
+        printf("\n1 - Oui\n");
         scanf("%d", &restart);
     }
-  
-     /* COLUMN_CHAR *mycol_c = create_column_char(CHAR,"My column char");
+
+    /*COLUMN_CHAR *mycol_c = create_column_char(CHAR,"My column char");
     char a = 'A',b = 'B';
     insert_value_c(mycol_c,&a);
     insert_value_c(mycol_c,NULL);

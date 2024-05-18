@@ -18,8 +18,8 @@ COLUMN *create_column(char *title) {
 
 int insert_value(COLUMN* col, int value) { /*Fonction pour insérer une valeur dans la colonne*/
     int NewTaillePhysique = col->taille_phy;
-    if (col->taille_phy == NULL || col->taille_phy == 0) { /*Si la taille physique est null ou = 0, on créer un tableau*/
-        col->donnee = (COLUMN_CHAR *)malloc(REALOC_SIZE*sizeof(COLUMN_CHAR ));
+    if (col->taille_phy == 0) { /*Si la taille physique est égal à 0, on crée un tableau*/
+        col->donnee = (COLUMN *)malloc(REALOC_SIZE*sizeof(COLUMN ));
         if (col->donnee == NULL) {
             return 0;   /*On retourne 0 si on a pas pu créer de tableau car il n'y avait pas assez de stockage*/
         }
@@ -51,6 +51,8 @@ int insert_value(COLUMN* col, int value) { /*Fonction pour insérer une valeur d
 int delete_column(COLUMN **col) {
     free((*col)->titre);
     free((*col)->donnee);
+    free(*col);
+    *col = NULL;
     return 0;
 }
 
@@ -62,13 +64,13 @@ void print_col(COLUMN* col){
 }
 
 int nb_occ_x(COLUMN* col, int x) {
-    int i, occurence = 0;
+    int i, occurrence = 0;
     for (i = 0; i < col->taille_log; i++) {
         if (x == col->donnee[i]) {
-            occurence += 1;
+            occurrence += 1;
         }
     }
-    return occurence;
+    return occurrence;
 }
 
 int pos_x(COLUMN* col, int x) {
@@ -78,27 +80,36 @@ int pos_x(COLUMN* col, int x) {
 }
 
 int nb_sup_x(COLUMN*col, int x) {
-    int nombre_supérieur_x = 0, i;
+    int nombre_superieur_x = 0, i;
     for (i = 0; i < col->taille_log; i++) {
         if (x < col->donnee[i]) {
-            nombre_supérieur_x += 1;
+            nombre_superieur_x += 1;
         }
     }
-    return nombre_supérieur_x;
+    return nombre_superieur_x;
 }
 
 int nb_inf_x(COLUMN*col, int x) {
-    int nombre_inférieur_x = 0, i;
+    int nombre_inferieur_x = 0, i;
     for (i = 0; i < col->taille_log; i++) {
         if (x > col->donnee[i]) {
-            nombre_inférieur_x += 1;
+            nombre_inferieur_x += 1;
         }
     }
-    return nombre_inférieur_x;
+    return nombre_inferieur_x;
 }
 
+int nb_egal_x(COLUMN *col, int x) {
+    int nombre_egal_x = 0;
+    for(int i = 0; i < col->taille_log; i++) {
+        if (x == col->donnee[i]){
+            nombre_egal_x += 1;
+        }
+    }
+    return nombre_egal_x;
+}
 //Partie 2
-/*
+
 COLUMN_CHAR *create_column_char(ENUM_TYPE type, char *title_c){
     COLUMN_CHAR *colonne_c = (COLUMN_CHAR *)malloc(sizeof(COLUMN_CHAR));
     if (colonne_c == NULL){
@@ -113,7 +124,7 @@ COLUMN_CHAR *create_column_char(ENUM_TYPE type, char *title_c){
     return colonne_c;
 }
 
-int insert_value_c(COLUMN_CHAR *col, void *value_2){
+/*int insert_value_c(COLUMN_CHAR *col, void *value_2){
     int NewTaillePhysique_c = col->max_size;
     if (col->max_size == NULL || col->max_size == 0) { //Si la max_size est null ou = 0, on créer un tableau
         col->data = (COLUMN_CHAR *)malloc(REALOC_SIZE*sizeof(COLUMN_CHAR));
@@ -139,7 +150,6 @@ int insert_value_c(COLUMN_CHAR *col, void *value_2){
     }
     //after checking memory
     switch(col->column_type){
-        ...
         case INT:
             col->data[col->size] = (int*) malloc (sizeof(int));
             *((int*)col->data[col->size])= *((int*)value_2);
@@ -168,12 +178,13 @@ int insert_value_c(COLUMN_CHAR *col, void *value_2){
             col->data[col->size]= malloc(sizeof(struct column));
             memcpy(col->data[col->size],value_2, sizeof(struct column));
             break;
+        case NULLVAL:
+            break;
     }
     ...
     col->size++;
     ...
 }
-
 
 //S'il y a assez de place dans le tableau pour insérer la valeur à l'indice taille_log
     else { // col->taille_log < col->taille_phy
@@ -181,5 +192,31 @@ int insert_value_c(COLUMN_CHAR *col, void *value_2){
         col->size++;
         return 1;
     }
+}
+
+
+void delete_column_c(COLUMN **col){
+    free((*col)->donnee);
+    free((*col)->titre);
+    free(*col);
+    *col = NULL;
+}
+
+void convert_value(COLUMN *col, unsigned long long int i, char *str, int size){
+    insert_value_c();
+    switch(col->column_type){
+        case INT:
+            snprintf(str, size, "%d", *((int*)col->data[i]));
+            break;
+        case CHAR:
+            snprintf(str,size,"%c", *((char*)col.data[i]));
+            break;
+        case UINT:
+            snprintf(str,size,"%d", *((unsigned int*)col.data[i]));
+            break;
+        case FLOAT:
+            snprintf(str,size,"%lf",*((float*)col.data[i]));
+    }
+
 }
 */
