@@ -12,5 +12,7 @@ typedef struct {
 
 CDataframe *CreationCDataFrameVide(int, int);
 int ajout_ligne(CDataframe*, int*);
+int supp_ligne(CDataframe *, int );
+
 
 #endif //PROJET_CDATAFRAME_CDATAFRAME_H
