@@ -21,4 +21,5 @@ Voici les explications de la première partie :
 - La fonction __int nb_sup_x(COLUMN*col, int x)__ permet d'afficher le nombre de valeur(s) qui sont supérieures à la valeur *x*.
 - La fonction __int nb_inf_x(COLUMN*col, int x)__ permet d'afficher le nombre de valeur(s) qui sont inférieures à la valeur *x*.
 - La fonction __int nb_egal_x(COLUMN*col, int x)__ permet d'afficher le nombre de valeur(s) qui sont égales à *x*.
+
 Nous avons notamment créer un menu pour que l'utilisateur puisse choisir ce qu'il aimerait afficher.
