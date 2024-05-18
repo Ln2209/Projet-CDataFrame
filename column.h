@@ -1,5 +1,5 @@
-#ifndef PROJET_C_LISTE_H
-#define PROJET_C_LISTE_H
+#ifndef PROJET_C_COLUMN_H
+#define PROJET_C_COLUMN_H
 #define REALOC_SIZE 256
 
 typedef struct {
@@ -53,4 +53,4 @@ int insert_value_c(COLUMN_CHAR *col, void *value_c);
 void delete_column_c(COLUMN **col);
 void convert_value(COLUMN *col, unsigned long long int i, char *str, int size);
 
-#endif //PROJET_C_LISTE_H
+#endif //PROJET_C_COLUMN_H

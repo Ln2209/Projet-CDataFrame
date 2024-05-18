@@ -41,9 +41,17 @@ int ajout_ligne(CDataframe *cdf, int *val){
     return 0;
 }
 
-int supp_ligne(CDataframe *cdf){
+int supp_ligne(CDataframe *cdf, int indice){
     for (int i = 0; i < cdf->nbr_colonnes;i++) {
         COLUMN *col = &cdf->colonnes[i];
+        if (indice < col->taille_log){
+            for (int j = indice; j < col->taille_log; j++){
+                col->donnee[j] = col->donnee[j+1];
+            }
+            col->taille_log--;
+            free(&col->donnee[indice]);
+        }
     }
-
+    cdf->nbr_lignes--;
+    return 0;
 }
