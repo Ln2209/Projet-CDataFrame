@@ -50,6 +50,7 @@ typedef struct column COLUMN_CHAR;
 COLUMN_CHAR *create_column_char(ENUM_TYPE type, char *title_c);
 
 int insert_value_c(COLUMN_CHAR *col, void *value_c);
+void delete_column_c(COLUMN **col);
 void convert_value(COLUMN *col, unsigned long long int i, char *str, int size);
 
 #endif //PROJET_C_LISTE_H
