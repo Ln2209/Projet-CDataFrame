@@ -36,7 +36,7 @@ Voici les explications de la première partie :
 - La fonction __int val_sup_x(CDataframe *cdf, int x)__ permet de parcourir tout le CDataFrame et d'afficher le nombre de cellules contenant une valeur supérieure à la valeur que l'utilisateur va entrer.
 - La fonction __int val_inf_x(CDataframe *cdf, int x)__ permet de parcourir tout le CDataFrame et d'afficher le nombre de cellules contenant une valeur inférieure à la valeur que l'utilisateur va entrer.
 
-####Nous avons notamment créer un menu pour que l'utilisateur puisse choisir ce qu'il aimerait afficher.
+#### Nous avons notamment créer un menu pour que l'utilisateur puisse choisir ce qu'il aimerait afficher.
 
 ### Partie I : Un CDataFrame presque parfait
 
