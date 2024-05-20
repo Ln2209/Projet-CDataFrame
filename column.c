@@ -5,11 +5,11 @@
 #include <string.h>
 
 COLUMN *create_column(char *title) {
-    COLUMN *colonne = (int *)malloc(sizeof(int));
+    COLUMN *colonne = (COLUMN *)malloc(sizeof(COLUMN));
     if (colonne == NULL){
         return NULL;
     }
-    colonne->titre = title;
+    colonne->titre = strdup(title);
     colonne->taille_phy = 0;
     colonne->taille_log = 0;
     colonne->donnee = NULL;

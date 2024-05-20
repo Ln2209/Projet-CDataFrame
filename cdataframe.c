@@ -91,9 +91,8 @@ int val_exist(CDataframe *cdf,int val){
 
 void print_title(CDataframe *cdf){
     for (int i = 0; i < cdf->nbr_colonnes;i++) {
-        printf("Le titre de la colonne %d est : %s\t",i,cdf->colonnes[i]->titre);
+        printf("Le titre de la colonne %d est: %s\n",i,cdf->colonnes[i]->titre);
     }
-    printf("\n");
 }
 
 void nbr_lig(CDataframe *cdf){
