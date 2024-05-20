@@ -11,7 +11,7 @@ de colonnes, similaire à une feuille de calcul. Nous allons donc expliquer la f
 3 parties. La première partie consiste à créer un CDataFrame d'entiers, la deuxieme partie est similaire à la première partie mais avec quelques fonctions en plus, et enfin la troisième partie est d'avoir un CDataFrame complet. 
 
 Voici les explications de la première partie : 
-### Partie I : Un CDataFrame d'entiers
+## Partie I : Un CDataFrame d'entiers
 - La fonction **COLUMN *create_column(char* title)** permet de créer dynamiquement une colonne vide à partir d'un titre de type char. Cette fonction est de type "COLUMN", qui est le nom de la structure qu'on a créé. Dans cette structure, elle contient le titre, la taille logique, la taille physique et les données.
 - La fonction __int insert_value(COLUMN* col, int value)__ permet d'insérer une valeur dans une colonne. Avant d'insérer, il faut vérifier la disponibilité de la taille physique.
 - La fonction __int delete_column(COLUMN **col)__ permet de libérer la mémoire qui a été allouée par son tableau de données et à elle-même.
@@ -38,9 +38,9 @@ Voici les explications de la première partie :
 
 #### Nous avons notamment créer un menu pour que l'utilisateur puisse choisir ce qu'il aimerait afficher.
 
-### Partie I : Un CDataFrame presque parfait
+## Partie I : Un CDataFrame presque parfait
 
 Pour cette partie, nous n'avons pas pu beaucoup avancer en raison d'une manque de compréhension et notamment en manque de temps. On a pu réussir quelques fonctions mais qui n'interéagit pas avec l'utilisateur.
 Le but de cette deuxième partie du projet est d'amélioré le CDataFrame précédent. 
 
-- La fonction 
+- La fonction __COLUMN_CHAR *create_column_char(ENUM_TYPE type, char *title_c)__ permet de créer une colonne d'un type et d'un titre donnés en paramètre.
