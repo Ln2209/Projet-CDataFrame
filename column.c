@@ -108,6 +108,7 @@ int nb_egal_x(COLUMN *col, int x) {
     }
     return nombre_egal_x;
 }
+
 //Partie 2
 
 COLUMN_CHAR *create_column_char(ENUM_TYPE type, char *title_c){

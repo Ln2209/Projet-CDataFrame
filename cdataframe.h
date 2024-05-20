@@ -21,7 +21,7 @@ int val_egal_x(CDataframe *,int);
 int val_sup_x(CDataframe*,int);
 int val_inf_x(CDataframe*,int);
 void delete_col(CDataframe *cdf, char*);
-int ajout_ligne(CDataframe*, int*);
+void ajout_ligne(CDataframe*, int*);
 int supp_ligne(CDataframe *, int );
 
 
