@@ -11,7 +11,7 @@ typedef struct {
 
 COLUMN *create_column(char* title);
 int insert_value(COLUMN* col, int value);
-int delete_column(COLUMN **col);
+void delete_column(COLUMN **col);
 void print_col(COLUMN* col);
 int nb_occ_x(COLUMN*col, int x);
 int pos_x(COLUMN*col, int x);
