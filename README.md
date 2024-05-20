@@ -38,7 +38,7 @@ Voici les explications de la première partie :
 
 #### Nous avons notamment créer un menu pour que l'utilisateur puisse choisir ce qu'il aimerait afficher.
 
-## Partie I : Un CDataFrame presque parfait
+## Partie II : Un CDataFrame presque parfait
 
 Pour cette partie, nous n'avons pas pu beaucoup avancer en raison d'une manque de compréhension et notamment en manque de temps. On a pu réussir quelques fonctions mais qui n'interéagit pas avec l'utilisateur.
 Le but de cette deuxième partie du projet est d'amélioré le CDataFrame précédent. 
