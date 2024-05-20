@@ -19,7 +19,7 @@ COLUMN *create_column(char *title) {
 int insert_value(COLUMN* col, int value) { /*Fonction pour insérer une valeur dans la colonne*/
     int NewTaillePhysique = col->taille_phy;
     if (col->taille_phy == 0) { /*Si la taille physique est égal à 0, on crée un tableau*/
-        col->donnee = (COLUMN *)malloc(REALOC_SIZE*sizeof(COLUMN ));
+        col->donnee = (COLUMN *)malloc(REALOC_SIZE*sizeof(COLUMN));
         if (col->donnee == NULL) {
             return 0;   /*On retourne 0 si on a pas pu créer de tableau car il n'y avait pas assez de stockage*/
         }
@@ -48,13 +48,13 @@ int insert_value(COLUMN* col, int value) { /*Fonction pour insérer une valeur d
     }
 }
 
-int delete_column(COLUMN **col) {
-    free((*col)->titre);
+void delete_column(COLUMN **col) {
     free((*col)->donnee);
+    (*col)->donnee = NULL;
     free(*col);
     *col = NULL;
-    return 0;
 }
+
 
 void print_col(COLUMN* col){
     int i;
