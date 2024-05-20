@@ -22,4 +22,25 @@ Voici les explications de la première partie :
 - La fonction __int nb_inf_x(COLUMN*col, int x)__ permet d'afficher le nombre de valeur(s) qui sont inférieures à la valeur *x*.
 - La fonction __int nb_egal_x(COLUMN*col, int x)__ permet d'afficher le nombre de valeur(s) qui sont égales à *x*.
 
-Nous avons notamment créer un menu pour que l'utilisateur puisse choisir ce qu'il aimerait afficher.
+#####Les fonctions ci-dessus sont pour une seule colonne. Les fonctions ci-dessous auront pour but de créer un CDataFrame d'entiers.
+
+- La fonction __CDataframe *CreationCDataFrameVide(int nombre_col, int nombre_lig)__ permet de créer un CDataFrame vide.
+- La fonction __void print_cdata(CDataframe *cdf)__ permet d'afficher tout le CDataFrame.
+- La fonction __void ajout_col(CDataframe *cdf, COLUMN *col)__ permet d'ajouter une colonne dans le CDataFrame.
+- La fonction __void delete_col(CDataframe *cdf, char *title)__ permet de supprimer une colonne dans le CDataFrame.
+- La fonction __int val_exist(CDataframe *cdf,int val)__ permet de savoir si la valeur existe ou non dans le CDataFrame (ou s'il apparaît au moins une fois).
+- La fonction __void print_title(CDataframe *cdf)__ permet d'afficher le titre de chaque colonne du CDataFrame.
+- La fonction __void nbr_lig(CDataframe *cdf)__ permet d'afficher le nombre de ligne du CDataFrame.
+- La fonction __void nbr_col(CDataframe *cdf)__ permet d'afficher le nombre de colonne du CDataFrame.
+- La fonction __int val_egal_x(CDataframe *cdf, int x)__ permet de parcourir tout le CDataFrame et d'afficher le nombre de cellules contenant la même valeur que l'utilisateur va entrer (on peut le comprendre comme l'occurrence).
+- La fonction __int val_sup_x(CDataframe *cdf, int x)__ permet de parcourir tout le CDataFrame et d'afficher le nombre de cellules contenant une valeur supérieure à la valeur que l'utilisateur va entrer.
+- La fonction __int val_inf_x(CDataframe *cdf, int x)__ permet de parcourir tout le CDataFrame et d'afficher le nombre de cellules contenant une valeur inférieure à la valeur que l'utilisateur va entrer.
+
+####Nous avons notamment créer un menu pour que l'utilisateur puisse choisir ce qu'il aimerait afficher.
+
+### Partie I : Un CDataFrame presque parfait
+
+Pour cette partie, nous n'avons pas pu beaucoup avancer en raison d'une manque de compréhension et notamment en manque de temps. On a pu réussir quelques fonctions mais qui n'interéagit pas avec l'utilisateur.
+Le but de cette deuxième partie du projet est d'amélioré le CDataFrame précédent. 
+
+- La fonction 
