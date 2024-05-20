@@ -69,16 +69,16 @@ int main() {
             }
 //Ajout ligne de valeurs
             if (functionality2 == 2) {
-                printf("La fonction est en commentaire car elle bug");
+                printf("La fonction est en commentaire car elle ne fonctionne pas");
             }
 //Suppression ligne de valeurs
             if (functionality2 == 3) {
-                printf("La fonction est en commentaire car elle bug");
+                printf("La fonction est en commentaire car elle ne fonctionne pas");
             }
 //Ajout colonne
             if (functionality2 == 4) {
                 nb_col += 1;
-                printf("Comment voulez-vous appelez votre nouvelle colonne ?");
+                printf("Comment voulez-vous appeler votre nouvelle colonne ?");
                 scanf(" %s", &titre_col);
                 for (int i = 0; i <= nb_col; i++) {
                     if (i == nb_col) {
@@ -91,7 +91,7 @@ int main() {
             }
 //Suppression colonne
             if (functionality2 == 5) {
-                printf("\nLa fonction existe, cependant, elle bug");
+                printf("\nLa fonction existe, cependant, elle ne fonctionne pas");
             }
 //Renommer une colonne
             if (functionality2 == 6) {
@@ -100,10 +100,10 @@ int main() {
 //Existence
             if (functionality2 == 7) {
                 if (val_exist(cdf,x) == 1) {
-                    printf("Vrai\n");
+                    printf("Elle existe\n");
                 }
                 else {
-                    printf("Faux\n");
+                    printf("Elle n'existe pas\n");
                 }
             }
 //Afficher titre colonne
@@ -151,28 +151,28 @@ int main() {
         int nb_col = 3;
         int nb_lig = 3;
         int x;
-        printf("Creation d'un CDataFrame avec 3 colonnes et 3 lignes");
+        //printf("Creation d'un CDataFrame avec 3 colonnes et 3 lignes");
         CDataframe *cdf = CreationCDataFrameVide(nb_col,nb_lig);
-        printf("\nCDataFrame cree avec succes");
-        printf("La premier colonne s'appelle colonne 0, la deuxième colonne 1 et la troisième colonne 2");
+        //printf("\nCDataFrame cree avec succes");
+        //printf("\nLa premier colonne s'appelle colonne 0, la deuxième colonne 1 et la troisième colonne 2");
         COLUMN *col = create_column("colonne 0");
         cdf->colonnes[0] = col;
         COLUMN *col1 = create_column("colonne 1");
         cdf->colonnes[1] = col1;
         COLUMN *col2 = create_column("colonne 2");
         cdf->colonnes[2] = col2;
-        printf("\nRemplissage du CDataFrame");
+        //printf("\nRemplissage du CDataFrame");
         int valeurs[3][3] = {{1,4,5},{5,9,24},{43,6,89}};
-        printf("\nLes valeurs 1, 4 et 5 pour la col0");
+        //printf("\nLes valeurs 1, 4 et 5 pour la col0");
         col->donnee = valeurs[0];
         col->taille_log = 3;
-        printf("\nLes valeurs 5, 9 et 24 pour la col1");
+        //printf("\nLes valeurs 5, 9 et 24 pour la col1");
         col1->donnee = valeurs[1];
         col1->taille_log = 3;
-        printf("\nLes valeurs 43, 6 et 29 pour la col2");
+        //printf("\nLes valeurs 43, 6 et 29 pour la col2");
         col2->donnee = valeurs[2];
         col2->taille_log = 3;
-        printf("\nLes valeurs ont bien ete ajoutees");
+        //printf("\nLes valeurs ont bien ete ajoutees");
         //SOUS FONCTIONNALITE
         while (restart == 1) {
             printf("\nVeuillez a present choisir la sous-fonctionnalite qui vous plaira:\n");
@@ -183,11 +183,11 @@ int main() {
             }
 //Ajout ligne de valeurs
             if (functionality2 == 2) {
-                printf("La fonction est en commentaire car elle bug");
+                printf("\nLa fonction est en commentaire car elle ne fonctionne pas");
             }
 //Suppression ligne de valeurs
             if (functionality2 == 3) {
-                printf("La fonction est en commentaire car elle bug");
+                printf("La fonction est en commentaire car elle ne fonctionne pas");
             }
 //Ajout colonne
             if (functionality2 == 4) {
@@ -200,7 +200,7 @@ int main() {
             }
 //Suppression colonne
             if (functionality2 == 5) {
-                printf("\nLa fonction existe, cependant, elle bug");
+                printf("\nLa fonction existe, cependant, elle ne fonctionne pas");
             }
 //Renommer une colonne
             if (functionality2 == 6) {
@@ -211,10 +211,10 @@ int main() {
                 printf("Entrez une valeur pour chercher si elle existe: ");
                 scanf("%d",&x);
                 if (val_exist(cdf,x) == 1) {
-                    printf("Oui, %d existe\n", x);
+                    printf("Oui, %d existe bien\n", x);
                 }
                 else {
-                    printf("Non, %d n'existe\n", x);
+                    printf("Non, %d n'existe bien\n", x);
                 }
             }
 //Afficher titre colonne
@@ -239,13 +239,13 @@ int main() {
             if (functionality2 == 12) {
                 printf("Entrez une valeur pour chercher le nombre de valeur superieure : ");
                 scanf("%d",&x);
-                printf("nombre de valeur superieure = %d\n", val_sup_x(cdf,x));
+                printf("Nombre de valeur superieure a %d : %d\n",x, val_sup_x(cdf,x));
             }
 //Inférieur
             if (functionality2 == 13) {
                 printf("Entrez une valeur pour chercher le nombre de valeur inferieure : ");
                 scanf("%d",&x);
-                printf("nombre de valeur inferieure = %d\n", val_inf_x(cdf,x));
+                printf("Nombre de valeur inferieure a %d : %d\n",x, val_inf_x(cdf,x));
             }
 
             //RESTART

@@ -22,8 +22,8 @@ void print_cdata(CDataframe *cdf){
     }
 }
 
-/*
-int ajout_ligne(CDataframe *cdf, int *val){
+
+/*void ajout_ligne(CDataframe *cdf, int *val){
     for (int i = 0; i < cdf->nbr_colonnes;i++){
         COLUMN *col = &cdf->colonnes[i];
         if (col->taille_log == col->taille_phy){
@@ -31,7 +31,6 @@ int ajout_ligne(CDataframe *cdf, int *val){
             int *new_donnee = (int *) realloc(col->donnee, new_taille * sizeof(int));
             if (new_donnee == NULL) {
                 printf("Erreur");
-                return -1;
             }
             col->donnee = new_donnee;
             col->taille_phy = new_taille;
@@ -40,7 +39,6 @@ int ajout_ligne(CDataframe *cdf, int *val){
         col->taille_log++;
     }
     cdf->nbr_lignes++;
-    return 0;
 }
 
 int supp_ligne(CDataframe *cdf, int indice){
@@ -56,8 +54,8 @@ int supp_ligne(CDataframe *cdf, int indice){
     }
     cdf->nbr_lignes--;
     return 0;
-}*/
-
+}
+*/
 void ajout_col(CDataframe *cdf, COLUMN *col){
     cdf->colonnes = realloc(cdf->colonnes,(cdf->nbr_colonnes + 1)* sizeof(COLUMN));
     cdf->colonnes[(cdf->nbr_colonnes)++] = col;
