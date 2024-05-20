@@ -22,7 +22,7 @@ Voici les explications de la première partie :
 - La fonction __int nb_inf_x(COLUMN*col, int x)__ permet d'afficher le nombre de valeur(s) qui sont inférieures à la valeur *x*.
 - La fonction __int nb_egal_x(COLUMN*col, int x)__ permet d'afficher le nombre de valeur(s) qui sont égales à *x*.
 
-#####Les fonctions ci-dessus sont pour une seule colonne. Les fonctions ci-dessous auront pour but de créer un CDataFrame d'entiers.
+#### Les fonctions ci-dessus sont pour une seule colonne. Les fonctions ci-dessous auront pour but de créer un CDataFrame d'entiers.
 
 - La fonction __CDataframe *CreationCDataFrameVide(int nombre_col, int nombre_lig)__ permet de créer un CDataFrame vide.
 - La fonction __void print_cdata(CDataframe *cdf)__ permet d'afficher tout le CDataFrame.
